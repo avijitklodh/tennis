@@ -3,23 +3,24 @@
 <canvas id="gameCanvas" width="800" height="600"></canvas>
 
 <script>
-var canvas;
-var canvasContext;
-var ballX = 50;
-var ballY = 50;
-var ballSpeedX = 10;
-var ballSpeedY = 4;
+<!-- change var to let -->
+let canvas;
+let canvasContext;
+let ballX = 50;
+let ballY = 50;
+let ballSpeedX = 10;
+let ballSpeedY = 4;
 
-var paddle1Y = 250;
-var paddle2Y = 250;
+let paddle1Y = 250;
+let paddle2Y = 250;
 const PADDLE_THICKNESS = 10;
 const PADDLE_HEIGHT = 100;
 
 function calculateMousePos(evt) {
-	var rect = canvas.getBoundingClientRect();
-	var root = document.documentElement;
-	var mouseX = evt.clientX - rect.left - root.scrollLeft;
-	var mouseY = evt.clientY - rect.top - root.scrollTop;
+	let rect = canvas.getBoundingClientRect();
+	let root = document.documentElement;
+	let mouseX = evt.clientX - rect.left - root.scrollLeft;
+	let mouseY = evt.clientY - rect.top - root.scrollTop;
 	return {
 		x:mouseX,
 		y:mouseY
@@ -30,7 +31,7 @@ window.onload = function() {
 	canvas = document.getElementById('gameCanvas');
 	canvasContext = canvas.getContext('2d');
 
-	var framesPerSecond = 30;
+	let framesPerSecond = 30;
 	setInterval(function() {
 			moveEverything();
 			drawEverything();
@@ -38,8 +39,8 @@ window.onload = function() {
 
 	canvas.addEventListener('mousemove',
 		function(evt) {
-			var mousePos = calculateMousePos(evt);
-			paddle2Y = mousePos.y - (PADDLE_HEIGHT/2);
+			let mousePos = calculateMousePos(evt);
+			paddle1Y = mousePos.y - (PADDLE_HEIGHT/2);
 		});
 }
 
